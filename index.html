@@ -1801,8 +1801,9 @@ function renderContent() {
 
                 let detailsHtml = ex.details.map(d => `<span>${d}</span>`).join('');
 
+                const exNameAttr = ex.name.replace(/"/g, '&quot;');
                 contentHtml += `
-                <div class="exercise-card" id="${day.id}-ex-${exIndex}" onclick="toggleComplete('${day.id}', ${exIndex})">
+                <div class="exercise-card" id="${day.id}-ex-${exIndex}" data-ex-name="${exNameAttr}" onclick="toggleComplete('${day.id}', ${exIndex})">
                     <div class="ex-top">
                         <span class="ex-name">${ex.name}</span>
                         <div style="display:flex;align-items:center;gap:4px;">
@@ -1882,8 +1883,10 @@ function updateTotalCompleted() {
     document.getElementById('totalCompleted').textContent = allCompleted;
 }
 
+// v2: name-keyed per-exercise storage. Survives shuffle and order changes.
+const STATE_STORAGE_KEY = 'workoutAllWeeks_v2';
 function saveState() {
-    const allState = JSON.parse(localStorage.getItem('workoutAllWeeks') || '{}');
+    const allState = JSON.parse(localStorage.getItem(STATE_STORAGE_KEY) || '{}');
     const stateKey = 'week' + currentWeek + '_' + currentGoal;
     const state = {};
     workoutData.days.forEach(day => {
@@ -1891,14 +1894,20 @@ function saveState() {
         const container = document.getElementById('tab-' + day.id);
         if (!container) return;
         const cards = container.querySelectorAll('.exercise-card');
-        state[day.id] = Array.from(cards).map(c => c.classList.contains('completed'));
+        const dayMap = {};
+        cards.forEach(c => {
+            const name = c.getAttribute('data-ex-name');
+            if (!name) return;
+            dayMap[name] = c.classList.contains('completed');
+        });
+        state[day.id] = dayMap;
     });
     allState[stateKey] = state;
-    localStorage.setItem('workoutAllWeeks', JSON.stringify(allState));
+    localStorage.setItem(STATE_STORAGE_KEY, JSON.stringify(allState));
 }
 
 function loadState() {
-    const allState = JSON.parse(localStorage.getItem('workoutAllWeeks') || '{}');
+    const allState = JSON.parse(localStorage.getItem(STATE_STORAGE_KEY) || '{}');
     const stateKey = 'week' + currentWeek + '_' + currentGoal;
     const state = allState[stateKey];
     if (!state) return;
@@ -1906,19 +1915,19 @@ function loadState() {
         workoutData.days.forEach(day => {
             if (day.isRest) return;
             const container = document.getElementById('tab-' + day.id);
-            if (!container || !state[day.id]) return;
-
+            const dayMap = state[day.id];
+            if (!container || !dayMap) return;
             const cards = container.querySelectorAll('.exercise-card');
-            state[day.id].forEach((isCompleted, idx) => {
-                if (isCompleted && cards[idx]) {
-                    cards[idx].classList.add('completed');
-                    const icon = cards[idx].querySelector('.check-icon:last-child');
-                    if(icon){
-                        icon.textContent = '\u2713';
-                        icon.style.backgroundColor = 'var(--success)';
-                        icon.style.borderColor = 'var(--success)';
-                        icon.style.color = 'var(--bg-main)';
-                    }
+            cards.forEach(card => {
+                const name = card.getAttribute('data-ex-name');
+                if (!name || !dayMap[name]) return;
+                card.classList.add('completed');
+                const icon = card.querySelector('.check-icon:last-child');
+                if (icon) {
+                    icon.textContent = '\u2713';
+                    icon.style.backgroundColor = 'var(--success)';
+                    icon.style.borderColor = 'var(--success)';
+                    icon.style.color = 'var(--bg-main)';
                 }
             });
             updateProgress(day.id);
