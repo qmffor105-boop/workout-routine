@@ -2,6 +2,11 @@
 
 Ralph 루프가 iteration 마다 최상단에 블록을 덧붙인다.
 
+## 2026-04-15 iter-3
+- stats-bar 에 `↺ 초기화` 버튼 추가. `resetAllChecks()` 가 `confirm()` 후 `STATE_STORAGE_KEY` 삭제 + DOM 체크 해제 + 진행률 0%.
+- 버튼 터치 타겟 44px, focus-visible 아웃라인 확보 (PRD §5 접근성).
+- 다음: v1.2 다크/라이트 테마 토글.
+
 ## 2026-04-15 iter-2
 - 체크 상태 저장을 **카드 인덱스 → 운동명** 키잉 으로 마이그레이션. 셔플 후에도 체크가 해당 운동을 따라감.
 - `data-ex-name` 속성을 카드에 추가, `saveState`/`loadState` 가 이 속성을 읽음.
