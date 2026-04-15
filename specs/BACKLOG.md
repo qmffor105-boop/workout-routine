@@ -3,8 +3,8 @@
 Ralph 루프가 위에서부터 순서대로 처리한다. 큰 항목은 하위 작업으로 쪼갤 것.
 
 ## v1.1 — 로컬 상태 유지
-- [ ] `localStorage` 에 현재 목표(goal) 저장/복원
-- [ ] `localStorage` 에 현재 주차(week) 저장/복원
+- [x] `localStorage` 에 현재 목표(goal) 저장/복원
+- [x] `localStorage` 에 현재 주차(week) 저장/복원
 - [ ] 운동 카드 체크 상태를 `goal × week × day × exerciseId` 키로 저장/복원
 - [ ] 체크 상태 전체 리셋 버튼 추가 (확인 다이얼로그 포함)
 
