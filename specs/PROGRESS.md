@@ -2,6 +2,12 @@
 
 Ralph 루프가 iteration 마다 최상단에 블록을 덧붙인다.
 
+## 2026-04-15 iter-4
+- 다크/라이트 테마 토글 구현. `[data-theme="light"]` 블록으로 CSS 변수 오버라이드 → 전체 UI가 한 번에 전환.
+- 선호도는 `workoutTheme` 키에 저장, 페이지 로드시 즉시 적용.
+- stats-bar 에 `🌓 테마` 버튼 추가 (reset 버튼과 동일 스타일 재활용).
+- 다음: v1.2 오늘 요일 자동 하이라이트.
+
 ## 2026-04-15 iter-3
 - stats-bar 에 `↺ 초기화` 버튼 추가. `resetAllChecks()` 가 `confirm()` 후 `STATE_STORAGE_KEY` 삭제 + DOM 체크 해제 + 진행률 0%.
 - 버튼 터치 타겟 44px, focus-visible 아웃라인 확보 (PRD §5 접근성).

@@ -23,6 +23,23 @@
             --badge-plyo-bg: #4a1942; --badge-plyo-text: #e879a8;
             --badge-stretch-bg: #0f3d3e; --badge-stretch-text: #38d9a9;
         }
+        [data-theme="light"] {
+            --bg-main: #f4f6fb;
+            --bg-secondary: #ffffff;
+            --bg-card: #eef2f8;
+            --text-main: #1a1a2e;
+            --text-muted: #5c6b89;
+            --primary: #0066cc;
+            --primary-gradient: linear-gradient(90deg, #0066cc, #00a86b);
+            --border-color: #d9dfeb;
+            --accent: #d6336c;
+            --success: #00a86b;
+            --badge-cardio-bg: #d4edda; --badge-cardio-text: #256b45;
+            --badge-strength-bg: #fce4d6; --badge-strength-text: #a94f1c;
+            --badge-core-bg: #e5e4f5; --badge-core-text: #4c3fb0;
+            --badge-plyo-bg: #fadbec; --badge-plyo-text: #aa2f7c;
+            --badge-stretch-bg: #d6f0ec; --badge-stretch-text: #1f7a64;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', -apple-system, sans-serif; background: var(--bg-main); color: var(--text-main); min-height: 100vh; }
         .header { background: linear-gradient(135deg, var(--bg-secondary), var(--bg-card)); padding: 30px 20px; text-align: center; border-bottom: 2px solid var(--border-color); }
@@ -276,6 +293,7 @@
     <div class="stat"><div class="num" id="weekCount">1</div><div class="label">현재 주차</div></div>
     <div class="stat"><div class="num" id="totalCompleted">0</div><div class="label">완료 운동</div></div>
     <div class="stat"><div class="num" id="streakCount">0</div><div class="label">연속 일수</div></div>
+    <button class="reset-btn" id="themeToggleBtn" onclick="toggleTheme()" title="다크/라이트 테마 전환" aria-label="테마 전환">🌓 테마</button>
     <button class="reset-btn" id="resetAllBtn" onclick="resetAllChecks()" title="모든 주차·목표의 체크 기록 초기화" aria-label="체크 기록 초기화">↺ 초기화</button>
 </div>
 
@@ -1889,6 +1907,22 @@ function updateTotalCompleted() {
 
 // v2: name-keyed per-exercise storage. Survives shuffle and order changes.
 const STATE_STORAGE_KEY = 'workoutAllWeeks_v2';
+
+const THEME_STORAGE_KEY = 'workoutTheme';
+function applyTheme(theme) {
+    if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.removeAttribute('data-theme');
+    }
+}
+function toggleTheme() {
+    const current = localStorage.getItem(THEME_STORAGE_KEY) || 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    localStorage.setItem(THEME_STORAGE_KEY, next);
+    applyTheme(next);
+}
+applyTheme(localStorage.getItem(THEME_STORAGE_KEY) || 'dark');
 
 function resetAllChecks() {
     const ok = window.confirm('모든 주차·목표의 체크 기록을 초기화합니다. 계속할까요?');
