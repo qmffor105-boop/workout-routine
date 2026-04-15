@@ -71,6 +71,8 @@
         .tab { padding: 12px 20px; border: none; background: transparent; color: var(--text-muted); cursor: pointer; font-size: 14px; font-weight: 600; border-radius: 10px 10px 0 0; white-space: nowrap; transition: all 0.3s; }
         .tab.active { background: var(--bg-main); color: var(--primary); }
         .tab:hover { color: var(--primary); }
+        .tab-today { box-shadow: inset 0 -3px 0 var(--success); }
+        .today-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--success); margin-left: 6px; vertical-align: middle; }
         .day-content { display: none; padding: 20px; max-width: 800px; margin: 0 auto; }
         .day-content.active { display: block; }
         .day-title { font-size: 22px; color: var(--primary); margin-bottom: 5px; }
@@ -1744,12 +1746,17 @@ function renderHeader() {
     `;
 }
 
+const WEEKDAY_LABELS = ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'];
 function renderTabs() {
+    const todayLabel = WEEKDAY_LABELS[new Date().getDay()];
     let tabsHtml = `<button class="tab active" onclick="showTab('daily')" id="nav-daily">오늘의 체크</button>`;
     tabsHtml += `<button class="tab" onclick="showTab('overview')" id="nav-overview">주간 개요</button>`;
     workoutData.days.forEach(day => {
         if (!day.isRest) {
-            tabsHtml += `<button class="tab" onclick="showTab('${day.id}')" id="nav-${day.id}">${day.title}</button>`;
+            const isToday = day.label === todayLabel;
+            const cls = 'tab' + (isToday ? ' tab-today' : '');
+            const marker = isToday ? ' <span class="today-dot" aria-label="오늘"></span>' : '';
+            tabsHtml += `<button class="${cls}" onclick="showTab('${day.id}')" id="nav-${day.id}" ${isToday ? 'aria-current="date"' : ''}>${day.title}${marker}</button>`;
         }
     });
     tabsHtml += `<button class="tab" onclick="showTab('timer')" id="nav-timer">타이머</button>`;
