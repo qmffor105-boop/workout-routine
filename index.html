@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://upload.wikimedia.org data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://upload.wikimedia.org https://raw.githubusercontent.com data:;">
     <title>홈트레이닝 루틴 - 맞춤형 운동 프로그램</title>
     <style>
         :root {
@@ -644,179 +644,176 @@ function getExercisePools() {
         cardio_hiit: [
             {name:"버피", badges:b(C,"CARDIO")},
             {name:"버피 + 점프", badges:b(C,"CARDIO")},
-            {name:"스타 점프", badges:b(C,"CARDIO")},
-            {name:"터피", badges:b(C,"CARDIO")}
+            {name:"스쿼트 쓰러스트 (버피에서 점프 제외)", badges:b(C,"CARDIO")}
         ],
         cardio_climb: [
-            {name:"마운틴 클라이머", badges:b(C,"CARDIO")},
-            {name:"마운틴 클라이머 (크로스바디)", badges:b(C,"CARDIO")},
-            {name:"베어 크롤", badges:b(C,"CARDIO")}
+            {name:"마운틴 클라이머 (산 오르기)", badges:b(C,"CARDIO")},
+            {name:"크로스바디 마운틴 클라이머", badges:b(C,"CARDIO")},
+            {name:"베어 크롤 (곰 걷기)", badges:b(C,"CARDIO")}
         ],
         cardio_run: [
-            {name:"하이니 (High Knees)", badges:b(C,"CARDIO")},
-            {name:"하이니", badges:b(C,"CARDIO")},
+            {name:"하이니 (제자리 무릎 올리기)", badges:b(C,"CARDIO")},
             {name:"제자리 스프린트", badges:b(C,"CARDIO")},
-            {name:"빠른 발 터치", badges:b(C,"CARDIO")}
+            {name:"버트 킥 (엉덩이 차기)", badges:b(C,"CARDIO")}
         ],
         cardio_jump: [
-            {name:"점핑잭", badges:b(C,"CARDIO")},
-            {name:"시저 점프", badges:b(C,"CARDIO")},
-            {name:"스케이터 점프", badges:b(C,"CARDIO")}
+            {name:"점핑잭 (팔벌려 뛰기)", badges:b(C,"CARDIO")},
+            {name:"시저 점프 (가위 점프)", badges:b(C,"CARDIO")},
+            {name:"스케이터 점프 (옆으로 뛰기)", badges:b(C,"CARDIO")}
         ],
 
         // STRENGTH - upper push
         push_basic: [
             {name:"무릎 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"인클라인 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"푸쉬업", badges:b(S,"STRENGTH")}
+            {name:"인클라인 푸쉬업 (상체 높이고)", badges:b(S,"STRENGTH")},
+            {name:"푸쉬업 (팔굽혀펴기)", badges:b(S,"STRENGTH")}
         ],
         push_standard: [
-            {name:"푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"와이드 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"스태거드 푸쉬업", badges:b(S,"STRENGTH")}
+            {name:"푸쉬업 (팔굽혀펴기)", badges:b(S,"STRENGTH")},
+            {name:"와이드 푸쉬업 (손 넓게)", badges:b(S,"STRENGTH")},
+            {name:"내로우 푸쉬업 (손 좁게)", badges:b(S,"STRENGTH")}
         ],
         push_advanced: [
-            {name:"다이아몬드 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"아처 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"클랩 푸쉬업", badges:b(S,"STRENGTH")},
+            {name:"다이아몬드 푸쉬업 (손 모으고)", badges:b(S,"STRENGTH")},
+            {name:"아처 푸쉬업 (한쪽 팔 집중)", badges:b(S,"STRENGTH")},
+            {name:"디클라인 푸쉬업 (발 높이고)", badges:b(S,"STRENGTH")},
             {name:"스파이더맨 푸쉬업", badges:b(S,"STRENGTH")}
         ],
         push_shoulder: [
-            {name:"파이크 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"파이크 푸쉬업 (발 높이)", badges:b(S,"STRENGTH")},
-            {name:"핸드스탠드 홀드 (벽)", badges:b(S,"STRENGTH")}
+            {name:"파이크 푸쉬업 (엉덩이 높이고)", badges:b(S,"STRENGTH")},
+            {name:"엘리베이티드 파이크 푸쉬업 (발 올리고)", badges:b(S,"STRENGTH")},
+            {name:"벽 핸드스탠드 홀드", badges:b(S,"STRENGTH")}
         ],
         push_special: [
-            {name:"힌두 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"디클라인 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"타이거 푸쉬업", badges:b(S,"STRENGTH")}
+            {name:"디클라인 푸쉬업 (발 높이고)", badges:b(S,"STRENGTH")},
+            {name:"스파이더맨 푸쉬업", badges:b(S,"STRENGTH")},
+            {name:"클랩 푸쉬업 (박수 푸쉬업)", badges:b(S,"STRENGTH")}
         ],
         dips: [
-            {name:"딥스 (의자 이용)", badges:b(S,"STRENGTH")},
-            {name:"딥스 (깊게)", badges:b(S,"STRENGTH")},
-            {name:"벤치 딥스", badges:b(S,"STRENGTH")}
+            {name:"벤치 딥스 (의자 딥스)", badges:b(S,"STRENGTH")},
+            {name:"트라이셉스 딥스 (깊게)", badges:b(S,"STRENGTH")},
+            {name:"바닥 딥스 (플로어 딥스)", badges:b(S,"STRENGTH")}
         ],
         back: [
-            {name:"슈퍼맨 홀드", badges:b(S,"STRENGTH")},
+            {name:"슈퍼맨 홀드 (등 신전)", badges:b(S,"STRENGTH")},
             {name:"슈퍼맨 펄스", badges:b(S,"STRENGTH")},
-            {name:"리버스 스노우엔젤", badges:b(S,"STRENGTH")},
-            {name:"Y-T-W 레이즈 (엎드려)", badges:b(S,"STRENGTH")}
+            {name:"리버스 스노우엔젤 (엎드려 팔 돌리기)", badges:b(S,"STRENGTH")},
+            {name:"엎드려 Y-T 레이즈", badges:b(S,"STRENGTH")}
         ],
 
         // STRENGTH - lower
         squat_basic: [
             {name:"스쿼트", badges:b(S,"STRENGTH")},
-            {name:"수모 스쿼트", badges:b(S,"STRENGTH")},
-            {name:"스쿼트 (펄스)", badges:b(S,"STRENGTH")}
+            {name:"와이드 스쿼트 (다리 넓게)", badges:b(S,"STRENGTH")},
+            {name:"펄스 스쿼트 (작은 반동)", badges:b(S,"STRENGTH")}
         ],
         squat_advanced: [
-            {name:"불가리안 스플릿 스쿼트", badges:b(S,"STRENGTH")},
-            {name:"피스톨 스쿼트 (보조)", badges:b(S,"STRENGTH")},
-            {name:"싱글레그 스쿼트 (박스)", badges:b(S,"STRENGTH")}
+            {name:"불가리안 스플릿 스쿼트 (뒷발 올리고)", badges:b(S,"STRENGTH")},
+            {name:"피스톨 스쿼트 (한 다리 스쿼트)", badges:b(S,"STRENGTH")},
+            {name:"점프 스쿼트", badges:b(S,"STRENGTH")}
         ],
         lunge: [
             {name:"런지 (좌우 교대)", badges:b(S,"STRENGTH")},
-            {name:"리버스 런지", badges:b(S,"STRENGTH")},
-            {name:"워킹 런지", badges:b(S,"STRENGTH")},
-            {name:"커튜시 런지", badges:b(S,"STRENGTH")}
+            {name:"리버스 런지 (뒤로 런지)", badges:b(S,"STRENGTH")},
+            {name:"워킹 런지 (걸으며 런지)", badges:b(S,"STRENGTH")},
+            {name:"사이드 런지 (옆 런지)", badges:b(S,"STRENGTH")}
         ],
         glute: [
-            {name:"글루트 브릿지", badges:b(S,"STRENGTH")},
-            {name:"글루트 브릿지 (싱글레그)", badges:b(S,"STRENGTH")},
-            {name:"힙 쓰러스트", badges:b(S,"STRENGTH")},
-            {name:"글루트 브릿지 마치", badges:b(S,"STRENGTH")}
+            {name:"글루트 브릿지 (엉덩이 들기)", badges:b(S,"STRENGTH")},
+            {name:"한 다리 글루트 브릿지", badges:b(S,"STRENGTH")},
+            {name:"힙 쓰러스트 (등 받치고)", badges:b(S,"STRENGTH")},
+            {name:"동키 킥백 (엎드려 다리 차기)", badges:b(S,"STRENGTH")}
         ],
         wall_sit: [
-            {name:"월 싯 (Wall Sit)", badges:b(S,"STRENGTH")},
-            {name:"월 싯 (싱글레그)", badges:b(S,"STRENGTH")},
-            {name:"이소메트릭 스쿼트 홀드", badges:b(S,"STRENGTH")}
+            {name:"월 싯 (벽 스쿼트 자세 유지)", badges:b(S,"STRENGTH")},
+            {name:"한 다리 월 싯", badges:b(S,"STRENGTH")},
+            {name:"스쿼트 홀드 (자세 유지)", badges:b(S,"STRENGTH")}
         ],
         calf: [
-            {name:"카프 레이즈", badges:b(S,"STRENGTH")},
-            {name:"카프 레이즈 (싱글레그)", badges:b(S,"STRENGTH")},
+            {name:"카프 레이즈 (종아리 들기)", badges:b(S,"STRENGTH")},
+            {name:"한 다리 카프 레이즈", badges:b(S,"STRENGTH")},
             {name:"점프 카프 레이즈", badges:b(S,"STRENGTH")}
         ],
 
         // PLYO
         plyo_squat: [
             {name:"점프 스쿼트", badges:b(P,"PLYO")},
-            {name:"스쿼트 점프", badges:b(P,"PLYO")},
-            {name:"턱 점프", badges:b(P,"PLYO")},
-            {name:"박스 점프 (또는 턱 점프)", badges:b(P,"PLYO")}
+            {name:"턱 점프 (무릎 당겨 점프)", badges:b(P,"PLYO")},
+            {name:"박스 점프", badges:b(P,"PLYO")}
         ],
         plyo_lunge: [
             {name:"점프 런지", badges:b(P,"PLYO")},
             {name:"스플릿 점프", badges:b(P,"PLYO")},
-            {name:"스케이터 점프", badges:b(C,"CARDIO")}
+            {name:"스케이터 점프 (옆으로 뛰기)", badges:b(C,"CARDIO")}
         ],
 
         // CORE
         core_plank: [
             {name:"플랭크", badges:b(CO,"CORE")},
-            {name:"하이 플랭크", badges:b(CO,"CORE")},
-            {name:"플랭크 숄더탭", badges:b(CO,"CORE")},
-            {name:"플랭크 잭", badges:b(CO,"CORE")}
+            {name:"하이 플랭크 (팔 펴고)", badges:b(CO,"CORE")},
+            {name:"플랭크 숄더탭 (어깨 터치)", badges:b(CO,"CORE")},
+            {name:"플랭크 잭 (플랭크 + 점핑잭)", badges:b(CO,"CORE")}
         ],
         core_plank_adv: [
             {name:"플랭크 투 푸쉬업", badges:b(CO,"CORE")},
-            {name:"플랭크 업다운", badges:b(CO,"CORE")},
+            {name:"플랭크 업다운 (팔꿈치↔손 전환)", badges:b(CO,"CORE")},
             {name:"커맨도 플랭크", badges:b(CO,"CORE")}
         ],
         core_crunch: [
-            {name:"크런치", badges:b(CO,"CORE")},
-            {name:"바이시클 크런치", badges:b(CO,"CORE")},
-            {name:"리버스 크런치", badges:b(CO,"CORE")},
-            {name:"V업", badges:b(CO,"CORE")}
+            {name:"크런치 (윗몸 일으키기)", badges:b(CO,"CORE")},
+            {name:"바이시클 크런치 (자전거 크런치)", badges:b(CO,"CORE")},
+            {name:"리버스 크런치 (무릎 당기기)", badges:b(CO,"CORE")},
+            {name:"V업 (V자 크런치)", badges:b(CO,"CORE")}
         ],
         core_leg: [
-            {name:"레그레이즈", badges:b(CO,"CORE")},
-            {name:"행잉 레그레이즈 (누워서)", badges:b(CO,"CORE")},
-            {name:"플러터 킥", badges:b(CO,"CORE")},
-            {name:"시저 킥", badges:b(CO,"CORE")}
+            {name:"레그레이즈 (다리 들기)", badges:b(CO,"CORE")},
+            {name:"누워서 레그레이즈", badges:b(CO,"CORE")},
+            {name:"플러터 킥 (다리 흔들기)", badges:b(CO,"CORE")},
+            {name:"시저 킥 (가위 다리)", badges:b(CO,"CORE")}
         ],
         core_side: [
-            {name:"사이드 플랭크 (좌/우)", badges:b(CO,"CORE")},
-            {name:"사이드 플랭크 + 힙딥", badges:b(CO,"CORE")},
-            {name:"러시안 트위스트", badges:b(CO,"CORE")}
+            {name:"사이드 플랭크 (옆 플랭크)", badges:b(CO,"CORE")},
+            {name:"사이드 플랭크 + 힙 딥", badges:b(CO,"CORE")},
+            {name:"러시안 트위스트 (좌우 비틀기)", badges:b(CO,"CORE")}
         ],
         core_dead: [
-            {name:"데드버그", badges:b(CO,"CORE")},
-            {name:"버드독", badges:b(CO,"CORE")},
-            {name:"할로우 바디 홀드", badges:b(CO,"CORE")}
+            {name:"데드버그 (죽은 벌레 자세)", badges:b(CO,"CORE")},
+            {name:"버드독 (한 팔 + 한 다리 뻗기)", badges:b(CO,"CORE")},
+            {name:"할로우 바디 홀드 (배에 힘주고 버티기)", badges:b(CO,"CORE")}
         ],
 
         // BULK-specific (slow tempo / isometric)
         bulk_push_slow: [
-            {name:"슬로우 푸쉬업 (3초 하강)", badges:b(S,"STRENGTH")},
-            {name:"푸쉬업 홀드 (하단 5초)", badges:b(S,"STRENGTH")},
-            {name:"네거티브 푸쉬업 (5초 하강)", badges:b(S,"STRENGTH")}
+            {name:"슬로우 푸쉬업 (3초 천천히 내리기)", badges:b(S,"STRENGTH")},
+            {name:"푸쉬업 홀드 (하단에서 5초 버티기)", badges:b(S,"STRENGTH")},
+            {name:"네거티브 푸쉬업 (5초 하강만)", badges:b(S,"STRENGTH")}
         ],
         bulk_squat_slow: [
-            {name:"슬로우 스쿼트 (4초 하강)", badges:b(S,"STRENGTH")},
-            {name:"1.5 스쿼트", badges:b(S,"STRENGTH")},
-            {name:"템포 스쿼트 (3-1-3)", badges:b(S,"STRENGTH")}
+            {name:"슬로우 스쿼트 (4초 천천히 앉기)", badges:b(S,"STRENGTH")},
+            {name:"1.5 스쿼트 (반+전체 반복)", badges:b(S,"STRENGTH")},
+            {name:"템포 스쿼트 (3초 하강 - 1초 정지 - 3초 상승)", badges:b(S,"STRENGTH")}
         ],
         bulk_iso: [
-            {name:"이소메트릭 푸쉬업 홀드", badges:b(S,"STRENGTH")},
-            {name:"바텀 스쿼트 홀드 (30초)", badges:b(S,"STRENGTH")},
-            {name:"월 싯 홀드 (60초+)", badges:b(S,"STRENGTH")}
+            {name:"푸쉬업 하단 정지", badges:b(S,"STRENGTH")},
+            {name:"스쿼트 하단 정지 (30초)", badges:b(S,"STRENGTH")},
+            {name:"월 싯 장시간 버티기 (60초+)", badges:b(S,"STRENGTH")}
         ],
         bulk_compound: [
             {name:"버피 + 푸쉬업 (느린 템포)", badges:b(S,"STRENGTH")},
             {name:"베어 크롤 + 푸쉬업", badges:b(S,"STRENGTH")},
-            {name:"인치웜 + 푸쉬업", badges:b(S,"STRENGTH")}
+            {name:"인치웜 + 푸쉬업 (애벌레 걷기 + 푸쉬업)", badges:b(S,"STRENGTH")}
         ],
 
         // DIET-specific (HIIT / cardio intensive)
         diet_hiit: [
             {name:"버피 + 턱 점프", badges:b(C,"CARDIO")},
             {name:"스쿼트 쓰러스트", badges:b(C,"CARDIO")},
-            {name:"스타 버피", badges:b(C,"CARDIO")}
+            {name:"버피", badges:b(C,"CARDIO")}
         ],
         diet_cardio_intense: [
             {name:"하이니 + 팔벌려 뛰기", badges:b(C,"CARDIO")},
-            {name:"래터럴 셔플", badges:b(C,"CARDIO")},
-            {name:"파워 잭", badges:b(C,"CARDIO")}
+            {name:"사이드 셔플 (좌우 스텝)", badges:b(C,"CARDIO")},
+            {name:"파워 점핑잭 (크게 팔벌려 뛰기)", badges:b(C,"CARDIO")}
         ],
         diet_superset: [
             {name:"스쿼트 → 점프 스쿼트 (슈퍼셋)", badges:b(P,"PLYO")},
@@ -911,8 +908,8 @@ function generateWorkoutData(week) {
                 { id:"w1d2", label:"화요일", title:"DAY 2", focus:"상체 근력 집중", subTitle:"40분 | 상체 볼륨", isRest:false,
                     sections:[
                         { name:"웜업 (5분)", exercises:[
-                            exFixed("암서클 + 숄더 스트레칭", [], ["2분"]),
-                            exFixed("인치웜 (Inchworm)", [], ["3분 | 6회"])
+                            exFixed("암서클 (팔 돌리기) + 숄더 스트레칭", [], ["2분"]),
+                            exFixed("인치웜 (애벌레 걷기)", [], ["3분 | 6회"])
                         ]},
                         { name:"상체 운동 (4세트)", exercises:[
                             ex("push_standard", "푸쉬업", ["12회", "4세트", "휴식 "+restLong]),
@@ -1015,8 +1012,8 @@ function generateWorkoutData(week) {
                 { id:"w1d2", label:"화요일", title:"DAY 2", focus:"상체 + 유산소", subTitle:"35분 | 서킷 스타일", isRest:false,
                     sections:[
                         { name:"웜업 (5분)", exercises:[
-                            exFixed("암서클 + 숄더 스트레칭", [], ["2분"]),
-                            exFixed("인치웜 (Inchworm)", [], ["3분 | 6회"])
+                            exFixed("암서클 (팔 돌리기) + 숄더 스트레칭", [], ["2분"]),
+                            exFixed("인치웜 (애벌레 걷기)", [], ["3분 | 6회"])
                         ]},
                         { name:"상체 서킷 (3라운드, 운동 간 휴식 없이 연속, 라운드 간 30초)", exercises:[
                             ex("push_standard", "푸쉬업", ["12회", "연속 수행"]),
@@ -1127,8 +1124,8 @@ function generateWorkoutData(week) {
                 { id:"w1d2", label:"화요일", title:"DAY 2", focus:"상체 기초", subTitle:"35분 | 상체 근력 기반", isRest:false,
                     sections:[
                         { name:"웜업 (5분)", exercises:[
-                            exFixed("암서클 + 숄더 스트레칭", [], ["2분"]),
-                            exFixed("인치웜 (Inchworm)", [], ["3분 | 6회"])
+                            exFixed("암서클 (팔 돌리기) + 숄더 스트레칭", [], ["2분"]),
+                            exFixed("인치웜 (애벌레 걷기)", [], ["3분 | 6회"])
                         ]},
                         { name:"상체 운동", exercises:[
                             ex("push_basic", "무릎 푸쉬업", ["10회", "3세트", "휴식 60초"]),
@@ -1229,7 +1226,7 @@ function generateWorkoutData(week) {
                 },
                 { id:"w2d2", label:"화요일", title:"DAY 2", focus:"상체 + 코어", subTitle:"45분 | 상체 볼륨 UP", isRest:false,
                     sections:[
-                        { name:"웜업 (5분)", exercises:[exFixed("암서클 + 인치웜", [], ["5분"])]},
+                        { name:"웜업 (5분)", exercises:[exFixed("암서클 (팔 돌리기) + 인치웜 (애벌레 걷기)", [], ["5분"])]},
                         { name:"상체 운동 (5세트)", exercises:[
                             ex("push_advanced", "푸쉬업 변형", ["12회", "5세트", "휴식 90초"]),
                             ex("push_shoulder", "파이크 푸쉬업", ["10회", "4세트", "휴식 90초"]),
@@ -1315,7 +1312,7 @@ function generateWorkoutData(week) {
                 },
                 { id:"w2d2", label:"화요일", title:"DAY 2", focus:"상체 + 코어 서킷", subTitle:"40분 | 슈퍼셋", isRest:false,
                     sections:[
-                        { name:"웜업 (5분)", exercises:[exFixed("암서클 + 인치웜", [], ["5분"])]},
+                        { name:"웜업 (5분)", exercises:[exFixed("암서클 (팔 돌리기) + 인치웜 (애벌레 걷기)", [], ["5분"])]},
                         { name:"상체 슈퍼셋 (4라운드, 운동 간 휴식 없이)", exercises:[
                             ex("push_advanced", "다이아몬드 푸쉬업", ["10회", "연속 수행"]),
                             ex("cardio_climb", "마운틴 클라이머", ["20회", "연속 수행"]),
@@ -1406,7 +1403,7 @@ function generateWorkoutData(week) {
                 },
                 { id:"w2d2", label:"화요일", title:"DAY 2", focus:"상체 + 코어", subTitle:"40분 | 세트 수 증가", isRest:false,
                     sections:[
-                        { name:"웜업 (5분)", exercises:[exFixed("암서클 + 인치웜", [], ["5분"])]},
+                        { name:"웜업 (5분)", exercises:[exFixed("암서클 (팔 돌리기) + 인치웜 (애벌레 걷기)", [], ["5분"])]},
                         { name:"상체 운동", exercises:[
                             ex("push_advanced", "다이아몬드 푸쉬업", ["10~12회", "4세트", "휴식 45초"]),
                             ex("push_standard", "와이드 푸쉬업", ["15회", "4세트", "휴식 45초"]),
@@ -1503,7 +1500,7 @@ function generateWorkoutData(week) {
             },
             { id:"w3d2", label:"화요일", title:"DAY 2", focus:"상체 고급 + 코어", subTitle:"45분 | 상체 근력 극대화", isRest:false,
                 sections:[
-                    { name:"웜업 (5분)", exercises:[exFixed("암서클 + 인치웜 + 푸쉬업 3회", [], ["5분"])]},
+                    { name:"웜업 (5분)", exercises:[exFixed("암서클 (팔 돌리기) + 인치웜 (애벌레 걷기) + 푸쉬업 3회", [], ["5분"])]},
                     { name:"상체 운동", exercises:[
                         ex("push_advanced", "다이아몬드 푸쉬업", ["12~15회", w3sets+"세트", "휴식 "+w3rest]),
                         ex("push_advanced", "아처 푸쉬업", ["8회 (각 팔)", w3sets+"세트", "휴식 "+w3rest]),
@@ -1618,9 +1615,9 @@ function generateWorkoutData(week) {
                         ex("glute", "글루트 브릿지", ["15회", "3세트", "휴식 45초"])
                     ]},
                     { name:"모빌리티 & 유연성", exercises:[
-                        exFixed("딥 스쿼트 홀드", b(ST,"STRETCH"), ["30초", "3세트"]),
-                        exFixed("90/90 스트레칭", b(ST,"STRETCH"), ["30초씩 (좌/우)", "2세트"]),
-                        exFixed("피전 포즈", b(ST,"STRETCH"), ["30초씩 (좌/우)", "2세트"])
+                        exFixed("딥 스쿼트 홀드 (깊게 앉아 버티기)", b(ST,"STRETCH"), ["30초", "3세트"]),
+                        exFixed("90/90 스트레칭 (앉아서 고관절 풀기)", b(ST,"STRETCH"), ["30초씩 (좌/우)", "2세트"]),
+                        exFixed("피전 포즈 (비둘기 자세 - 엉덩이 스트레칭)", b(ST,"STRETCH"), ["30초씩 (좌/우)", "2세트"])
                     ]},
                     { name:"쿨다운", exercises:[exFixed("전신 스트레칭", b(ST,"STRETCH"), ["5분"])]}
                 ], tip:""
@@ -1657,10 +1654,10 @@ function generateWorkoutData(week) {
                         exFixed("점핑잭 (느리게)", b(C,"CARDIO"), ["5분"])
                     ]},
                     { name:"전신 스트레칭 & 모빌리티 (15분)", exercises:[
-                        exFixed("고양이-소 스트레칭", b(ST,"STRETCH"), ["10회"]),
-                        exFixed("월드 그레이티스트 스트레칭", b(ST,"STRETCH"), ["5회 (각 방향)"]),
-                        exFixed("다운독 -> 업독", b(ST,"STRETCH"), ["8회"]),
-                        exFixed("딥 스쿼트 홀드 + 트위스트", b(ST,"STRETCH"), ["30초"]),
+                        exFixed("고양이-소 스트레칭 (등 둥글게 ↔ 오목하게)", b(ST,"STRETCH"), ["10회"]),
+                        exFixed("월드 그레이티스트 스트레칭 (전신 동적 스트레칭)", b(ST,"STRETCH"), ["5회 (각 방향)"]),
+                        exFixed("다운독 → 업독 (요가 자세 전환)", b(ST,"STRETCH"), ["8회"]),
+                        exFixed("딥 스쿼트 홀드 + 트위스트 (깊게 앉아 비틀기)", b(ST,"STRETCH"), ["30초"]),
                         exFixed("전신 정적 스트레칭", b(ST,"STRETCH"), ["5분"])
                     ]}
                 ], tip:"4주 프로그램을 완료했습니다! 축하합니다! 다음 사이클에서는 강도를 올려서 시작하세요."
@@ -5151,27 +5148,327 @@ const exerciseDemos = {
 };
 
 // Map exercise names to demo keys using flexible matching
+// Explicit variant → canonical demo mapping. `null` means "this exercise has no accurate demo yet".
+// Use `null` rather than a loose substring match when the variant doesn't share the canonical motion.
+// Example: "월 싯" is a static hold, NOT a squat, so it shouldn't borrow the squat demo just because
+// its description contains "스쿼트".
+var exerciseAliases = {
+    // --- Squat family ---
+    '1.5 스쿼트': '스쿼트', '펄스 스쿼트': '스쿼트', '슬로우 스쿼트': '스쿼트',
+    '와이드 스쿼트': '스쿼트', '템포 스쿼트': '스쿼트',
+    '불가리안 스플릿 스쿼트': '스쿼트', '피스톨 스쿼트': '스쿼트',
+    '점프 스쿼트': '스쿼트', '턱 점프': '스쿼트', '박스 점프': '스쿼트',
+    '스쿼트 점프': '스쿼트',
+    // --- Push-up family ---
+    '슬로우 푸쉬업': '푸쉬업', '네거티브 푸쉬업': '푸쉬업', '푸쉬업 홀드': '푸쉬업',
+    '와이드 푸쉬업': '푸쉬업', '내로우 푸쉬업': '푸쉬업', '다이아몬드 푸쉬업': '푸쉬업',
+    '아처 푸쉬업': '푸쉬업', '스파이더맨 푸쉬업': '푸쉬업', '클랩 푸쉬업': '푸쉬업',
+    '인클라인 푸쉬업': '푸쉬업', '파이크 푸쉬업': '푸쉬업',
+    '엘리베이티드 파이크 푸쉬업': '푸쉬업', '디클라인 푸쉬업': '푸쉬업',
+    // --- Lunge family ---
+    '리버스 런지': '런지', '워킹 런지': '런지', '사이드 런지': '런지',
+    '점프 런지': '런지', '스플릿 점프': '런지',
+    // --- Plank family ---
+    '하이 플랭크': '플랭크', '플랭크 숄더탭': '플랭크', '플랭크 잭': '플랭크',
+    '플랭크 투 푸쉬업': '플랭크', '플랭크 업다운': '플랭크', '커맨도 플랭크': '플랭크',
+    // --- Crunch / core family ---
+    '리버스 크런치': '크런치', 'V업': '크런치',
+    // --- Leg raise family ---
+    '누워서 레그레이즈': '레그레이즈', '플러터 킥': '레그레이즈', '시저 킥': '레그레이즈',
+    // --- Glute bridge family ---
+    '한 다리 글루트 브릿지': '글루트 브릿지', '힙 쓰러스트': '글루트 브릿지',
+    '동키 킥백': '글루트 브릿지',
+    // --- Side plank ---
+    '사이드 플랭크 + 힙 딥': '사이드 플랭크',
+    // --- Dips family ---
+    '트라이셉스 딥스': '딥스', '바닥 딥스': '딥스', '벤치 딥스': '딥스',
+    // --- Superman / back ---
+    '슈퍼맨 펄스': '슈퍼맨', '리버스 스노우엔젤': '슈퍼맨',
+    '엎드려 Y-T 레이즈': '슈퍼맨',
+    // --- Cardio family ---
+    '버피 + 점프': '버피', '버피 + 턱 점프': '버피', '스쿼트 쓰러스트': '버피',
+    '크로스바디 마운틴 클라이머': '마운틴 클라이머',
+    '점핑잭': '점핑잭', '파워 점핑잭': '점핑잭',
+    '하이니 + 팔벌려 뛰기': '하이니',
+    // --- Distinct exercises with no matching demo yet (explicit "no") ---
+    '월 싯': null, '한 다리 월 싯': null, '스쿼트 홀드': null,
+    '카프 레이즈': null, '한 다리 카프 레이즈': null, '점프 카프 레이즈': null,
+    '베어 크롤': null, '인치웜': null, '인치웜 + 푸쉬업': null,
+    '시저 점프': null, '스케이터 점프': null, '제자리 스프린트': null,
+    '버트 킥': null, '사이드 셔플': null,
+    '데드버그': null, '버드독': null, '할로우 바디 홀드': null,
+    '벽 핸드스탠드 홀드': null
+};
+
 function findDemoKey(exerciseName) {
-    const name = exerciseName.trim();
-    if (exerciseDemos[name]) return name;
-    for (const key of Object.keys(exerciseDemos)) {
-        if (name.startsWith(key) || name.includes(key)) return key;
-    }
-    for (const key of Object.keys(exerciseDemos)) {
-        if (key.startsWith(name) || key.includes(name)) return key;
+    if (!exerciseName) return null;
+    const raw = exerciseName.trim();
+    // Strip parenthetical descriptions so "월 싯 (벽 스쿼트 자세 유지)" matches the canonical "월 싯".
+    const canonical = raw.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+    if (exerciseDemos[raw]) return raw;
+    if (exerciseDemos[canonical]) return canonical;
+    if (Object.prototype.hasOwnProperty.call(exerciseAliases, canonical)) {
+        const aliased = exerciseAliases[canonical];
+        return (aliased && exerciseDemos[aliased]) ? aliased : null;
     }
     return null;
 }
 
 // ============================================================
-// 3D Animation System for exercises (with Canvas fallback)
+// Exercise Animation System (2D neon human silhouette)
 // ============================================================
 var _demoAnimationFrameId = null;
 var _active3DInstances = [];
 
+// 2D neon human silhouette animation — uses existing joint keyframes.
+// Replaces the old 3D wooden-mannequin renderer with a clean human outline.
+function create2DExerciseAnimation(container, exerciseName) {
+    var animData = exerciseAnimations[exerciseName];
+    if (!animData) return null;
+
+    var W = 300, H = 350;
+    var canvas = document.createElement('canvas');
+    canvas.width = W;
+    canvas.height = H;
+    canvas.style.borderRadius = '10px';
+    canvas.style.background = '#0a0a18';
+    canvas.style.display = 'block';
+    canvas.style.maxWidth = '100%';
+    container.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+
+    var startTime = performance.now();
+    var duration = 1000 / (animData.speed || 2);
+    var animId = null;
+    var stopped = false;
+
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function lerpJoint(p1, p2, t) { return { x: lerp(p1.x, p2.x, t), y: lerp(p1.y, p2.y, t) }; }
+    function lerpPose(a, b, t) {
+        var out = {};
+        for (var k in a) {
+            if (a[k] && b[k] && typeof a[k].x === 'number') out[k] = lerpJoint(a[k], b[k], t);
+        }
+        return out;
+    }
+
+    function stroke(ctx, p1, p2, w) {
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y);
+        ctx.lineTo(p2.x, p2.y);
+        ctx.lineWidth = w;
+        ctx.stroke();
+    }
+
+    function drawTaperedLimb(p1, p2, w1, w2) {
+        var dx = p2.x - p1.x, dy = p2.y - p1.y;
+        var len = Math.hypot(dx, dy) || 1;
+        var nx = -dy / len, ny = dx / len;
+        ctx.beginPath();
+        ctx.moveTo(p1.x + nx * w1, p1.y + ny * w1);
+        ctx.lineTo(p2.x + nx * w2, p2.y + ny * w2);
+        ctx.lineTo(p2.x - nx * w2, p2.y - ny * w2);
+        ctx.lineTo(p1.x - nx * w1, p1.y - ny * w1);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+
+    function drawFigure(pose) {
+        ctx.clearRect(0, 0, W, H);
+        ctx.fillStyle = '#0a0a18';
+        ctx.fillRect(0, 0, W, H);
+
+        var ls = pose.lShoulder, rs = pose.rShoulder, lh = pose.lHip, rh = pose.rHip;
+        var head = pose.head, neck = pose.neck;
+        if (!ls || !rs || !lh || !rh || !head) return;
+
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.strokeStyle = '#eaf7ff';
+        ctx.fillStyle = 'rgba(150, 215, 255, 0.22)';
+        ctx.shadowColor = 'rgba(130, 210, 255, 0.85)';
+        ctx.shadowBlur = 14;
+        ctx.lineWidth = 2.5;
+
+        // --- Torso: hourglass shape with chest/waist curve ---
+        var shoulderMid = { x: (ls.x + rs.x) / 2, y: (ls.y + rs.y) / 2 };
+        var hipMid = { x: (lh.x + rh.x) / 2, y: (lh.y + rh.y) / 2 };
+        // Waist sits ~55% down from shoulders to hips, slightly narrowed
+        var shoulderSpan = Math.hypot(rs.x - ls.x, rs.y - ls.y);
+        var hipSpan = Math.hypot(rh.x - lh.x, rh.y - lh.y);
+        var waistInset = 0.86;  // how much the waist narrows
+        var torsoDir = { x: hipMid.x - shoulderMid.x, y: hipMid.y - shoulderMid.y };
+        var torsoLen = Math.hypot(torsoDir.x, torsoDir.y) || 1;
+        var tnx = -torsoDir.y / torsoLen, tny = torsoDir.x / torsoLen;
+        var waistMid = { x: lerp(shoulderMid.x, hipMid.x, 0.55), y: lerp(shoulderMid.y, hipMid.y, 0.55) };
+        var waistHalf = (Math.max(shoulderSpan, hipSpan) / 2) * waistInset;
+        var waistL = { x: waistMid.x + tnx * waistHalf, y: waistMid.y + tny * waistHalf };
+        var waistR = { x: waistMid.x - tnx * waistHalf, y: waistMid.y - tny * waistHalf };
+
+        ctx.beginPath();
+        ctx.moveTo(ls.x, ls.y);
+        ctx.lineTo(rs.x, rs.y);
+        // Right side: shoulder → waistR → hip (smooth curve)
+        ctx.quadraticCurveTo(waistR.x, waistR.y, rh.x, rh.y);
+        ctx.lineTo(lh.x, lh.y);
+        // Left side: hip → waistL → shoulder
+        ctx.quadraticCurveTo(waistL.x, waistL.y, ls.x, ls.y);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+        // --- Arms (shoulder → elbow → hand, tapered) ---
+        if (pose.lElbow && pose.lHand) {
+            drawTaperedLimb(ls, pose.lElbow, 7, 5.5);
+            drawTaperedLimb(pose.lElbow, pose.lHand, 5, 3.8);
+        }
+        if (pose.rElbow && pose.rHand) {
+            drawTaperedLimb(rs, pose.rElbow, 7, 5.5);
+            drawTaperedLimb(pose.rElbow, pose.rHand, 5, 3.8);
+        }
+
+        // --- Legs (hip → knee → foot, tapered) ---
+        if (pose.lKnee && pose.lFoot) {
+            drawTaperedLimb(lh, pose.lKnee, 10, 7.5);
+            drawTaperedLimb(pose.lKnee, pose.lFoot, 7, 5);
+        }
+        if (pose.rKnee && pose.rFoot) {
+            drawTaperedLimb(rh, pose.rKnee, 10, 7.5);
+            drawTaperedLimb(pose.rKnee, pose.rFoot, 7, 5);
+        }
+
+        // --- Hands (small circles) ---
+        if (pose.lHand) {
+            ctx.beginPath();
+            ctx.arc(pose.lHand.x, pose.lHand.y, 4.2, 0, Math.PI * 2);
+            ctx.fill(); ctx.stroke();
+        }
+        if (pose.rHand) {
+            ctx.beginPath();
+            ctx.arc(pose.rHand.x, pose.rHand.y, 4.2, 0, Math.PI * 2);
+            ctx.fill(); ctx.stroke();
+        }
+
+        // --- Feet (small ovals aligned to leg direction) ---
+        function drawFoot(knee, foot) {
+            var dx = foot.x - knee.x, dy = foot.y - knee.y;
+            var ang = Math.atan2(dy, dx) + Math.PI / 2;
+            ctx.save();
+            ctx.translate(foot.x, foot.y);
+            ctx.rotate(ang);
+            ctx.beginPath();
+            ctx.ellipse(0, 0, 8, 4.2, 0, 0, Math.PI * 2);
+            ctx.fill(); ctx.stroke();
+            ctx.restore();
+        }
+        if (pose.lKnee && pose.lFoot) drawFoot(pose.lKnee, pose.lFoot);
+        if (pose.rKnee && pose.rFoot) drawFoot(pose.rKnee, pose.rFoot);
+
+        // --- Neck (trapezoid) + Head (oval) ---
+        var neckTop = { x: head.x, y: head.y + 11 };
+        var neckHalfTop = 5.5, neckHalfBot = 7;
+        ctx.beginPath();
+        ctx.moveTo(neckTop.x - neckHalfTop, neckTop.y);
+        ctx.lineTo(neckTop.x + neckHalfTop, neckTop.y);
+        ctx.lineTo(shoulderMid.x + neckHalfBot, shoulderMid.y);
+        ctx.lineTo(shoulderMid.x - neckHalfBot, shoulderMid.y);
+        ctx.closePath();
+        ctx.fill(); ctx.stroke();
+
+        ctx.beginPath();
+        ctx.ellipse(head.x, head.y, 12, 14.5, 0, 0, Math.PI * 2);
+        ctx.fill(); ctx.stroke();
+    }
+
+    function step(now) {
+        if (stopped) return;
+        var elapsed = now - startTime;
+        var cycle = (elapsed % (duration * 2)) / duration;
+        var t = cycle < 1 ? cycle : 2 - cycle; // ping-pong
+        drawFigure(lerpPose(animData.start, animData.end, t));
+        animId = requestAnimationFrame(step);
+    }
+    animId = requestAnimationFrame(step);
+
+    return {
+        dispose: function() {
+            stopped = true;
+            if (animId) cancelAnimationFrame(animId);
+            try { container.removeChild(canvas); } catch(e) {}
+        }
+    };
+}
+
 // Skeleton keyframes for each exercise: {start: {joints}, end: {joints}}
 // Joints: head, neck, lShoulder, rShoulder, lElbow, rElbow, lHand, rHand, hip, lHip, rHip, lKnee, rKnee, lFoot, rFoot
 // Canvas is 300x350
+// Real photo pairs from free-exercise-db (MIT, yuhonas/free-exercise-db on GitHub).
+// Shown as an alternating 2-frame "animation" (start pose ↔ end pose).
+// Takes precedence over gifUrl? No — gifUrl wins when present. This runs when gifUrl is null.
+var exerciseStills = {
+    "플랭크":            ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plank/1.jpg"],
+    "마운틴 클라이머 (산 오르기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Mountain_Climbers/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Mountain_Climbers/1.jpg"],
+    "마운틴 클라이머":    ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Mountain_Climbers/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Mountain_Climbers/1.jpg"],
+    "크런치 (윗몸 일으키기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/1.jpg"],
+    "크런치":            ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Crunches/1.jpg"],
+    "벤치 딥스 (의자 딥스)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Chest_Version/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Chest_Version/1.jpg"],
+    "트라이셉스 딥스 (깊게)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Chest_Version/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Chest_Version/1.jpg"],
+    "딥스":              ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Chest_Version/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dips_-_Chest_Version/1.jpg"],
+    "사이드 플랭크 (옆 플랭크)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Bridge/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Bridge/1.jpg"],
+    "사이드 플랭크":      ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Bridge/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Side_Bridge/1.jpg"],
+    "슈퍼맨 홀드 (등 신전)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/1.jpg"],
+    "슈퍼맨 홀드":        ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/1.jpg"],
+    "슈퍼맨":            ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Superman/1.jpg"],
+    "바이시클 크런치 (자전거 크런치)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Elbow_to_Knee/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Elbow_to_Knee/1.jpg"],
+    "바이시클 크런치":    ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Elbow_to_Knee/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Elbow_to_Knee/1.jpg"],
+    "러시안 트위스트 (좌우 비틀기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Russian_Twist/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Russian_Twist/1.jpg"],
+    "러시안 트위스트":    ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Russian_Twist/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Russian_Twist/1.jpg"],
+    "디클라인 푸쉬업 (발 높이고)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Ups_With_Feet_Elevated/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Ups_With_Feet_Elevated/1.jpg"],
+    "디클라인 푸쉬업":    ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Ups_With_Feet_Elevated/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Ups_With_Feet_Elevated/1.jpg"],
+    "런지 (좌우 교대)":    ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Lunges/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Lunges/1.jpg"],
+    "런지":              ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Lunges/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dumbbell_Lunges/1.jpg"],
+    "글루트 브릿지 (엉덩이 들기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Glute_Bridge/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Glute_Bridge/1.jpg"],
+    "글루트 브릿지":      ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Glute_Bridge/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Barbell_Glute_Bridge/1.jpg"],
+    // Added for exercises whose silhouette animation didn't convey the motion clearly
+    "카프 레이즈 (종아리 들기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/1.jpg"],
+    "카프 레이즈":        ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/1.jpg"],
+    "한 다리 카프 레이즈": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/1.jpg"],
+    "점프 카프 레이즈":   ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Standing_Calf_Raises/1.jpg"],
+    "인치웜 (애벌레 걷기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Inchworm/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Inchworm/1.jpg"],
+    "인치웜":            ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Inchworm/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Inchworm/1.jpg"],
+    "데드버그 (죽은 벌레 자세)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dead_Bug/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dead_Bug/1.jpg"],
+    "데드버그":          ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dead_Bug/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Dead_Bug/1.jpg"],
+    "베어 크롤 (곰 걷기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bear_Crawl_Sled_Drags/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bear_Crawl_Sled_Drags/1.jpg"],
+    "베어 크롤":         ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bear_Crawl_Sled_Drags/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bear_Crawl_Sled_Drags/1.jpg"],
+    "플러터 킥 (다리 흔들기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/1.jpg"],
+    "플러터 킥":         ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/1.jpg"],
+    "시저 킥 (가위 다리)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/1.jpg"],
+    "시저 킥":           ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Flutter_Kicks/1.jpg"],
+    // Batch-verified free-exercise-db IDs (round 2)
+    "와이드 푸쉬업 (손 넓게)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Up_Wide/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Up_Wide/1.jpg"],
+    "와이드 푸쉬업":      ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Up_Wide/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Push-Up_Wide/1.jpg"],
+    "클랩 푸쉬업 (박수 푸쉬업)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plyo_Push-up/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plyo_Push-up/1.jpg"],
+    "클랩 푸쉬업":        ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plyo_Push-up/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Plyo_Push-up/1.jpg"],
+    "벽 핸드스탠드 홀드":   ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/1.jpg"],
+    "파이크 푸쉬업 (엉덩이 높이고)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/1.jpg"],
+    "파이크 푸쉬업":      ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/1.jpg"],
+    "엘리베이티드 파이크 푸쉬업 (발 올리고)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Handstand_Push-Ups/1.jpg"],
+    "불가리안 스플릿 스쿼트 (뒷발 올리고)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/1.jpg"],
+    "불가리안 스플릿 스쿼트": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Split_Squat_with_Dumbbells/1.jpg"],
+    "점프 스쿼트":        ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bench_Jump/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bench_Jump/1.jpg"],
+    "턱 점프 (무릎 당겨 점프)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bench_Jump/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bench_Jump/1.jpg"],
+    "박스 점프":          ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bench_Jump/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bench_Jump/1.jpg"],
+    "점프 런지":          ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lunge_Sprint/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lunge_Sprint/1.jpg"],
+    "스플릿 점프":        ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lunge_Sprint/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Lunge_Sprint/1.jpg"],
+    "워킹 런지 (걸으며 런지)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Walking_Lunge/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Walking_Lunge/1.jpg"],
+    "워킹 런지":          ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Walking_Lunge/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Bodyweight_Walking_Lunge/1.jpg"],
+    "V업 (V자 크런치)":    ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Body-Up/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Body-Up/1.jpg"],
+    "V업":               ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Body-Up/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Body-Up/1.jpg"],
+    "레그레이즈 (다리 들기)": ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hanging_Leg_Raise/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hanging_Leg_Raise/1.jpg"],
+    "레그레이즈":         ["https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hanging_Leg_Raise/0.jpg", "https://raw.githubusercontent.com/yuhonas/free-exercise-db/main/exercises/Hanging_Leg_Raise/1.jpg"]
+};
+
 var exerciseAnimations = {
     "마운틴 클라이머": {
         speed: 3.5,
@@ -5229,9 +5526,11 @@ var exerciseAnimations = {
         end:   {head:{x:150,y:25},neck:{x:150,y:45},lShoulder:{x:130,y:60},rShoulder:{x:170,y:60},lElbow:{x:125,y:90},rElbow:{x:175,y:90},lHand:{x:125,y:115},rHand:{x:175,y:115},hip:{x:150,y:125},lHip:{x:140,y:130},rHip:{x:160,y:130},lKnee:{x:185,y:180},rKnee:{x:115,y:175},lFoot:{x:190,y:240},rFoot:{x:100,y:240}}
     },
     "월 싯": {
-        speed: 1.2,
-        start: {head:{x:190,y:55},neck:{x:190,y:75},lShoulder:{x:185,y:90},rShoulder:{x:195,y:90},lElbow:{x:180,y:120},rElbow:{x:200,y:120},lHand:{x:178,y:148},rHand:{x:202,y:148},hip:{x:190,y:155},lHip:{x:185,y:160},rHip:{x:195,y:160},lKnee:{x:170,y:210},rKnee:{x:175,y:210},lFoot:{x:165,y:275},rFoot:{x:175,y:275}},
-        end:   {head:{x:190,y:58},neck:{x:190,y:78},lShoulder:{x:185,y:93},rShoulder:{x:195,y:93},lElbow:{x:180,y:123},rElbow:{x:200,y:123},lHand:{x:178,y:150},rHand:{x:202,y:150},hip:{x:190,y:158},lHip:{x:185,y:163},rHip:{x:195,y:163},lKnee:{x:170,y:213},rKnee:{x:175,y:213},lFoot:{x:165,y:275},rFoot:{x:175,y:275}}
+        // Side view: stand upright → slide down wall into L-shape (back vertical against wall on the right,
+        // thighs horizontal, shins vertical). The motion clearly demonstrates "sit against the wall".
+        speed: 1.0,
+        start: {head:{x:180,y:35},neck:{x:180,y:55},lShoulder:{x:178,y:75},rShoulder:{x:184,y:75},lElbow:{x:175,y:115},rElbow:{x:181,y:115},lHand:{x:174,y:152},rHand:{x:180,y:152},hip:{x:180,y:158},lHip:{x:178,y:162},rHip:{x:184,y:162},lKnee:{x:180,y:218},rKnee:{x:184,y:218},lFoot:{x:178,y:275},rFoot:{x:184,y:275}},
+        end:   {head:{x:180,y:100},neck:{x:180,y:120},lShoulder:{x:178,y:135},rShoulder:{x:184,y:135},lElbow:{x:165,y:170},rElbow:{x:171,y:170},lHand:{x:152,y:200},rHand:{x:158,y:200},hip:{x:180,y:210},lHip:{x:178,y:213},rHip:{x:184,y:213},lKnee:{x:115,y:214},rKnee:{x:120,y:214},lFoot:{x:115,y:275},rFoot:{x:120,y:275}}
     },
     "카프 레이즈": {
         speed: 2,
@@ -5284,9 +5583,18 @@ var exerciseAnimations = {
         end:   {head:{x:150,y:90},neck:{x:150,y:105},lShoulder:{x:115,y:118},rShoulder:{x:185,y:118},lElbow:{x:88,y:138},rElbow:{x:212,y:138},lHand:{x:80,y:165},rHand:{x:220,y:165},hip:{x:150,y:178},lHip:{x:140,y:183},rHip:{x:160,y:183},lKnee:{x:135,y:228},rKnee:{x:165,y:228},lFoot:{x:130,y:275},rFoot:{x:170,y:275}}
     },
     "플랭크 숄더탭": {
-        speed: 2.5,
-        start: {head:{x:150,y:45},neck:{x:150,y:65},lShoulder:{x:130,y:80},rShoulder:{x:170,y:80},lElbow:{x:130,y:118},rElbow:{x:170,y:118},lHand:{x:130,y:155},rHand:{x:170,y:155},hip:{x:150,y:160},lHip:{x:140,y:165},rHip:{x:160,y:165},lKnee:{x:135,y:218},rKnee:{x:165,y:218},lFoot:{x:130,y:275},rFoot:{x:170,y:275}},
-        end:   {head:{x:150,y:45},neck:{x:150,y:65},lShoulder:{x:130,y:80},rShoulder:{x:170,y:80},lElbow:{x:140,y:100},rElbow:{x:170,y:118},lHand:{x:165,y:82},rHand:{x:170,y:155},hip:{x:150,y:160},lHip:{x:140,y:165},rHip:{x:160,y:165},lKnee:{x:135,y:218},rKnee:{x:165,y:218},lFoot:{x:130,y:275},rFoot:{x:170,y:275}}
+        // High plank position (side view, head on right). Alternates: both hands on floor → lift
+        // left hand up to tap opposite shoulder while right hand supports. Body stays horizontal.
+        speed: 2.0,
+        start: {head:{x:255,y:115},neck:{x:245,y:125},lShoulder:{x:235,y:132},rShoulder:{x:245,y:132},lElbow:{x:235,y:168},rElbow:{x:245,y:168},lHand:{x:235,y:197},rHand:{x:245,y:197},hip:{x:150,y:135},lHip:{x:147,y:140},rHip:{x:153,y:140},lKnee:{x:100,y:163},rKnee:{x:108,y:163},lFoot:{x:55,y:197},rFoot:{x:63,y:197}},
+        end:   {head:{x:255,y:115},neck:{x:245,y:125},lShoulder:{x:235,y:132},rShoulder:{x:245,y:132},lElbow:{x:248,y:142},rElbow:{x:245,y:168},lHand:{x:248,y:122},rHand:{x:245,y:197},hip:{x:150,y:135},lHip:{x:147,y:140},rHip:{x:153,y:140},lKnee:{x:100,y:163},rKnee:{x:108,y:163},lFoot:{x:55,y:197},rFoot:{x:63,y:197}}
+    },
+    "플랭크 투 푸쉬업": {
+        // Alternate forearm plank (elbows on floor) ↔ high plank (straight arms).
+        // Side view, head on right, wall/floor on y~195.
+        speed: 1.5,
+        start: {head:{x:255,y:108},neck:{x:245,y:118},lShoulder:{x:237,y:130},rShoulder:{x:245,y:130},lElbow:{x:235,y:195},rElbow:{x:245,y:195},lHand:{x:215,y:198},rHand:{x:225,y:198},hip:{x:150,y:132},lHip:{x:145,y:137},rHip:{x:155,y:137},lKnee:{x:100,y:163},rKnee:{x:108,y:163},lFoot:{x:55,y:197},rFoot:{x:63,y:197}},
+        end:   {head:{x:255,y:78},neck:{x:245,y:90},lShoulder:{x:237,y:102},rShoulder:{x:245,y:102},lElbow:{x:237,y:148},rElbow:{x:245,y:148},lHand:{x:237,y:195},rHand:{x:245,y:195},hip:{x:150,y:104},lHip:{x:145,y:109},rHip:{x:155,y:109},lKnee:{x:100,y:135},rKnee:{x:108,y:135},lFoot:{x:55,y:197},rFoot:{x:63,y:197}}
     },
     "힌두 푸쉬업": {
         speed: 1.8,
@@ -5541,6 +5849,10 @@ function openDemoModal(exerciseName) {
 
     titleEl.textContent = exerciseName;
 
+    // Canonical name (parentheticals stripped) for media lookup — keeps variant-specific
+    // stills/animations working even when the demo (instructions) maps to a different canonical exercise.
+    const _rawName = exerciseName.trim();
+    const canonicalName = _rawName.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
     const demoKey = findDemoKey(exerciseName);
     if (demoKey && exerciseDemos[demoKey]) {
         const demo = exerciseDemos[demoKey];
@@ -5553,22 +5865,53 @@ function openDemoModal(exerciseName) {
         // Muscle tags
         tagsEl.innerHTML = demo.muscles.map(m => '<span class="demo-muscle-tag">' + m + '</span>').join('');
 
-        // Video/GIF area or 3D animation
-        var hasVideo = false;
-        if (demo.gifUrl) {
-            hasVideo = true;
-            videoAreaEl.innerHTML = '<div class="demo-video-area"><img src="' + demo.gifUrl + '" alt="' + exerciseName + ' demo" style="width:100%;border-radius:12px;" onerror="this.parentElement.innerHTML=\'<div style=text-align:center;padding:20px;color:var(--text-muted)>영상을 불러올 수 없습니다.</div>\'"></div>';
-        } else if (exerciseAnimations[demoKey]) {
-            hasVideo = true;
+        // Render helper for a still-image pair that alternates every 700ms.
+        function renderStillPair(pair) {
+            var pairId = 'demoStill_' + Math.random().toString(36).slice(2, 8);
+            videoAreaEl.innerHTML =
+                '<div class="demo-video-area" style="position:relative;background:#0f0f1a;border-radius:12px;overflow:hidden;">' +
+                '<img id="' + pairId + '" src="' + pair[0] + '" alt="' + exerciseName + ' start" style="width:100%;display:block;border-radius:12px;" onerror="this.parentElement.innerHTML=\'<div style=text-align:center;padding:20px;color:var(--text-muted)>사진을 불러올 수 없습니다.</div>\'">' +
+                '</div>';
+            setTimeout(function() {
+                var imgEl = document.getElementById(pairId);
+                if (!imgEl) return;
+                var frame = 0;
+                var timer = setInterval(function() {
+                    if (!document.body.contains(imgEl)) { clearInterval(timer); return; }
+                    frame = 1 - frame;
+                    imgEl.src = pair[frame];
+                }, 700);
+                _active3DInstances.push({ dispose: function() { clearInterval(timer); } });
+            }, 50);
+        }
+
+        // Render helper for the 2D silhouette animation.
+        function renderSilhouette(animName) {
             videoAreaEl.innerHTML = '<div class="demo-video-area" style="background:#0f0f1a;padding:10px;display:flex;justify-content:center;" id="demoAnim3DContainer"></div>';
             setTimeout(function() {
                 var animContainer = document.getElementById('demoAnim3DContainer');
                 if (animContainer) {
-                    var inst = create3DExerciseAnimation(animContainer, demoKey);
+                    var inst = create2DExerciseAnimation(animContainer, animName);
                     if (inst) _active3DInstances.push(inst);
                 }
             }, 50);
+        }
+
+        // Priority: canonical-specific beats aliased (demoKey) beats generic gif.
+        // This keeps "플랭크 투 푸쉬업" from borrowing "플랭크" stills/gif when the canonical animation exists.
+        var hasVideo = true;
+        if (exerciseStills[canonicalName]) {
+            renderStillPair(exerciseStills[canonicalName]);
+        } else if (exerciseAnimations[canonicalName]) {
+            renderSilhouette(canonicalName);
+        } else if (demo.gifUrl) {
+            videoAreaEl.innerHTML = '<div class="demo-video-area"><img src="' + demo.gifUrl + '" alt="' + exerciseName + ' demo" style="width:100%;border-radius:12px;" onerror="this.parentElement.innerHTML=\'<div style=text-align:center;padding:20px;color:var(--text-muted)>영상을 불러올 수 없습니다.</div>\'"></div>';
+        } else if (exerciseStills[demoKey]) {
+            renderStillPair(exerciseStills[demoKey]);
+        } else if (exerciseAnimations[demoKey]) {
+            renderSilhouette(demoKey);
         } else {
+            hasVideo = false;
             // No video: show pose silhouettes as fallback in video column
             videoAreaEl.innerHTML =
                 '<div style="background:var(--bg-card);border-radius:12px;padding:16px;text-align:center;">' +
