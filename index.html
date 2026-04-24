@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://upload.wikimedia.org https://raw.githubusercontent.com data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://www.gstatic.com https://apis.google.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://upload.wikimedia.org https://raw.githubusercontent.com https://*.googleusercontent.com https://lh3.googleusercontent.com data:; connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com; frame-src https://workout-routine-359698.firebaseapp.com https://accounts.google.com https://apis.google.com;">
     <title>홈트레이닝 루틴 - 맞춤형 운동 프로그램</title>
     <style>
         :root {
@@ -283,10 +283,35 @@
             .demo-content-grid { grid-template-columns:1fr; }
         }
         .demo-col-label { font-size:11px; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; text-align:center; }
+
+        /* Auth (Google Sign-In) */
+        .auth-area { position:fixed; top:10px; right:12px; z-index:200; display:flex; align-items:center; gap:8px; }
+        .auth-login-btn { background:linear-gradient(135deg, #4285F4, #3367D6); color:#fff; border:none; border-radius:999px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,0.25); display:inline-flex; align-items:center; gap:6px; }
+        .auth-login-btn:hover { filter:brightness(1.1); }
+        .auth-login-btn svg { width:14px; height:14px; }
+        .auth-user { display:flex; align-items:center; gap:8px; background:var(--bg-card, #1e1e2e); border:1px solid var(--border, #2a2a3a); border-radius:999px; padding:4px 10px 4px 4px; }
+        .auth-user img { width:28px; height:28px; border-radius:50%; object-fit:cover; }
+        .auth-user .name { font-size:12px; font-weight:600; color:var(--text, #eaeaf0); max-width:110px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+        .auth-user .logout { background:none; border:none; color:var(--text-muted, #8b8ba0); font-size:11px; cursor:pointer; padding:2px 6px; border-radius:6px; }
+        .auth-user .logout:hover { background:rgba(255,0,0,0.15); color:#ff6e6e; }
+        @media (max-width: 480px) { .auth-user .name { max-width:70px; } .auth-login-btn { padding:7px 10px; font-size:12px; } }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha512-dLxUelApnYxpLt6K2iomGngnHO83iUvZytA3YjDUCjT0HDOHKXnVYdf3hU4JjM8uEhxf9nD1/ey98U3t2vZ0qQ==" crossorigin="anonymous"></script>
 </head>
 <body>
+
+<!-- Google 로그인 영역 (우측 상단 고정) -->
+<div class="auth-area" id="authArea">
+    <button class="auth-login-btn" id="loginBtn" onclick="doGoogleLogin()">
+        <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M44.5 20H24v8.5h11.8C34.7 33.9 30 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 6 1.1 8.3 2.9l6.4-6.4C34.5 4.3 29.5 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"/></svg>
+        Google 로그인
+    </button>
+    <div class="auth-user" id="userInfo" style="display:none;">
+        <img id="userAvatar" alt="프로필" referrerpolicy="no-referrer">
+        <span class="name" id="userName"></span>
+        <button class="logout" onclick="doLogout()" title="로그아웃">로그아웃</button>
+    </div>
+</div>
 
 <div class="header" id="app-header"></div>
 <div class="goal-selector" id="goal-selector"></div>
@@ -6006,6 +6031,62 @@ renderDailyDashboard();
 updateStreakCount();
 startReminderCheck();
 showTab('daily');
+
+// ==================== Google Sign-In (Firebase Auth) ====================
+function doGoogleLogin() {
+    if (!window._firebaseSignIn) { alert('로그인 서비스가 아직 준비되지 않았습니다. 잠시 후 다시 시도해주세요.'); return; }
+    window._firebaseSignIn().catch(function(err) {
+        if (err && err.code === 'auth/popup-closed-by-user') return;
+        alert('로그인 실패: ' + (err && err.message ? err.message : err));
+    });
+}
+function doLogout() {
+    if (!window._firebaseSignOut) return;
+    window._firebaseSignOut().catch(function(err) { alert('로그아웃 실패: ' + err.message); });
+}
+function _updateAuthUI(user) {
+    var loginBtn = document.getElementById('loginBtn');
+    var userInfo = document.getElementById('userInfo');
+    var avatar = document.getElementById('userAvatar');
+    var name = document.getElementById('userName');
+    if (!loginBtn || !userInfo) return;
+    if (user) {
+        loginBtn.style.display = 'none';
+        userInfo.style.display = 'flex';
+        if (avatar && user.photoURL) avatar.src = user.photoURL;
+        if (name) name.textContent = user.displayName || user.email || '사용자';
+    } else {
+        loginBtn.style.display = '';
+        userInfo.style.display = 'none';
+    }
+}
+window._updateAuthUI = _updateAuthUI;
+</script>
+
+<!-- Firebase Auth (Google Sign-In) -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDUPvfxl_tEUCEPpQ6_fgiC_e3H7D2cUME",
+    authDomain: "workout-routine-359698.firebaseapp.com",
+    projectId: "workout-routine-359698",
+    storageBucket: "workout-routine-359698.firebasestorage.app",
+    messagingSenderId: "414573343891",
+    appId: "1:414573343891:web:27451fa7977e019e2dc966"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+window._firebaseSignIn = () => signInWithPopup(auth, provider);
+window._firebaseSignOut = () => signOut(auth);
+
+onAuthStateChanged(auth, (user) => {
+    if (typeof window._updateAuthUI === 'function') window._updateAuthUI(user);
+});
 </script>
 </body>
 </html>
